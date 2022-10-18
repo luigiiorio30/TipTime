@@ -2,10 +2,10 @@ package com.example.tiptime
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tiptime.databinding.ActivityMainBinding
@@ -18,8 +18,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Log.d("shake", "aaa222a")
+
         binding.calculateButton.setOnClickListener { calculateTip() }
+
+        binding.clear.setOnClickListener { cleanTextView() }
 
         binding.costOfServiceEditText.setOnKeyListener { view, keyCode, _ ->
             handleKeyEvent(
@@ -91,6 +93,13 @@ class MainActivity : AppCompatActivity() {
         } else {
             0.0
         }
+    }
+
+    //CLEAN TEXT VIEW
+    private fun cleanTextView() {
+        binding.tipResult.text = ""
+        binding.totalBill.text = ""
+        binding.moneyPerson.text = ""
     }
 
     //PERSON CONVERTED TO INT

@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:hint="@string/cost_of_service"
+            app:endIconMode="clear_text"
             app:layout_constraintStart_toEndOf="@id/icon_cost_of_service"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -55,6 +56,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:hint="@string/divide"
+            app:endIconMode="clear_text"
             app:layout_constraintStart_toEndOf="@id/icon_split_cost"
             app:layout_constraintTop_toBottomOf="@id/cost_of_service">
 
@@ -168,6 +170,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/total_bill"
             tools:text="2$ per person" />
+
+        <Button
+            android:id="@+id/clear"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/clear"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/money_person" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

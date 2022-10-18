@@ -17,4 +17,5 @@
     <string name="accept">Accept</string>
     <string name="total">Total Bill: %s</string>
     <string name="money_person"> %s per person </string>
+    <string name="clear">Clear</string>
 </resources>
