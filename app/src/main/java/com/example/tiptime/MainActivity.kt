@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tiptime.databinding.ActivityMainBinding
 import java.text.NumberFormat
@@ -32,13 +33,15 @@ class MainActivity : AppCompatActivity() {
         val costDouble = costToDouble(binding.costOfServiceEditText.text.toString())
         val personInt = personToInt(binding.splitCostEditText.text.toString())
 
-        binding.moneyPerson.isEnabled = personToInt(binding.splitCostEditText.text.toString()) != 0
+        when (personToInt(binding.splitCostEditText.text.toString())) {
+            0 -> binding.moneyPerson.visibility = TextView.INVISIBLE
+            else -> binding.moneyPerson.visibility = TextView.VISIBLE
+        }
 
         val tipPercentage = getPercentageById(binding.tipOptions.checkedRadioButtonId)
 
         //calculate tip
-        val tip = calculateTip(costDouble, tipPercentage)
-
+        val tip = calculateTip(costDouble, tipPercentage, binding.roundUpSwitch.isChecked)
         //formatting and showing tip
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
         binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
@@ -49,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         binding.totalBill.text = getString(R.string.total, formattedTotal)
 
         //total bill for person
-        val totalBillForPerson = calculateSplitTotal(costDouble, personInt)
+        val totalBillForPerson = calculateSplitTotal(totalBill, personInt)
         val formattedTotalBillForPerson =
             NumberFormat.getCurrencyInstance().format(totalBillForPerson)
         binding.moneyPerson.text = getString(R.string.money_person, formattedTotalBillForPerson)
@@ -57,8 +60,12 @@ class MainActivity : AppCompatActivity() {
 
 
     //PRIMARY FACTIONS
-    private fun calculateTip(cost: Double, tipPercentage: Double): Double {
-        return tipPercentage * cost
+    private fun calculateTip(cost: Double, tipPercentage: Double, roundUp: Boolean): Double {
+        return if (roundUp) {
+            kotlin.math.ceil(tipPercentage * cost)
+        } else {
+            tipPercentage * cost
+        }
     }
 
     private fun calculateTotal(tip: Double, cost: Double): Double {
