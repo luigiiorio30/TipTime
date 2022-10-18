@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         val tipPercentage = getPercentageById(binding.tipOptions.checkedRadioButtonId)
-
         //calculate tip
         val tip = calculateTip(costDouble, tipPercentage, binding.roundUpSwitch.isChecked)
         //formatting and showing tip
