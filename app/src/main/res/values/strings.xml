@@ -7,6 +7,13 @@
     <string name="ok_service">Okay (15%)</string>
     <string name="round_up_tip">Round up tip?</string>
     <string name="calculate">Calculate</string>
+    <string name="infobutt">About</string>
     <string name="tip_amount">Tip Amount: %s</string>
+    <string name="notip">Invalid value!</string>
     <string name="validvalue">Inserisci un valore valido!</string>
+    <string name="cancel">Cancel</string>
+    <string name="decline">Decline</string>
+    <string name="accept">Accept</string>
+    <string name="total">Total Bill: %s</string>
+    <string name="divide">Divide total bill for: </string>
 </resources>
