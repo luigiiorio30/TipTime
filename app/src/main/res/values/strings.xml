@@ -15,5 +15,6 @@
     <string name="decline">Decline</string>
     <string name="accept">Accept</string>
     <string name="total">Total Bill: %s</string>
-    <string name="divide">Divide total bill for: </string>
+    <string name="divide">Divide for: %s</string>
+    <string name="money_person"> %s per person </string>
 </resources>
