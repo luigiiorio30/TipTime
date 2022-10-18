@@ -164,6 +164,7 @@
             android:id="@+id/money_person"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/total_bill"
             tools:text="2$ per person" />
