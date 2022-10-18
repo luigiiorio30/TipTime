@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Tip Time</string>
     <string name="cost_of_service">Cost of Service</string>
+    <string name="divide">Divide for:</string>
     <string name="how_was_the_service">How was the service?</string>
     <string name="amazing_service">Amazing (20%)</string>
     <string name="good_service">Good (18%)</string>
@@ -15,6 +16,5 @@
     <string name="decline">Decline</string>
     <string name="accept">Accept</string>
     <string name="total">Total Bill: %s</string>
-    <string name="divide">Divide for: %s</string>
     <string name="money_person"> %s per person </string>
 </resources>
